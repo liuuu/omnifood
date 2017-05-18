@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="omnifood is premium food delivery service with the misson to bring nice food">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="./vendors/css/normalize.css">
+  <link rel="stylesheet" href="./vendors/css/animate.css">
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -16,42 +18,38 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-toggleable-lg navbar-fixed-top">
+    <nav class="navbar navbar-toggleable-lg">
         <div class="container">
-
-        <div class="navbar-header">
-
-          <a class="navbar-brand" href="#">
-            <img src="resources/img/logo-white.png" alt="">
-          </a>
-          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-
-          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <img src="resources/img/logo-white.png" alt="">
+            </a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
         </div>
         <div class="collapse navbar-collapse" id="mydropdown">
           <ul class="nav navbar-nav ">
-            <li><a href="#">food delivery</a></li>
-            <li><a href="#">how it works</a></li>
-            <li><a href="#">our CITIES</a></li>
+            <li><a href="#features">food delivery</a></li>
+            <li><a href="#works">how it works</a></li>
+            <li><a href="#cities">our CITIES</a></li>
             <li class=""><a href="#">sign up</a></li>
           </ul>
         </div>
-
       </div>
     </nav>
 
     <div class="hero-text-box">
       <h1>Goodbye junk food.</h1>
       <h1> Hello super healthy meals.</h1>
-      <a href="" class="btn btn-full ">i.m hungry</a>
-      <a href="" class="btn btn-ghost">show me more</a>
+      <a href="#works" class="btn btn-full ">i.m hungry</a>
+      <a href="#cities" class="btn btn-ghost">show me more</a>
     </div>
   </header>
 
-  <section class="features">
+  <section class="features" id="features">
     <div class="container">
 
       <div class="row">
@@ -83,7 +81,7 @@
       </div>
     </div>
   </section>
-  <section class="meals">
+  <section class="meals" id="meals">
     <div class="container-fluid">
 
     <div class="row">
@@ -135,7 +133,7 @@
   </div>
   </section>
 
-  <section class="steps">
+  <section class="works" id="works">
     <div class="container">
 
     <div class="row">
@@ -168,7 +166,7 @@
    </div>
   </section>
 
-  <section class="cities">
+  <section class="cities" id="cities">
     <div class="container">
       <div class="row">
         <h2 class="h2-decoration">WE'RE CURRENTLY IN THESE CITIES</h2>
@@ -401,7 +399,7 @@
               &nbsp;
             </div>
             <div class="col-sm-8">
-              <input type="submit" name="" value="send it">
+              <input type="submit" name="" value="send it" class="plan-btn">
             </div>
           </div>
         </form>
@@ -435,6 +433,96 @@
         <p>Build with love</p>
       </div>
     </div>
+    <a href="#" class="backTop">Top</a>
   </footer>
 </body>
-</html>
+
+<script type="text/javascript" src="./vendors/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      var waypoint = new Waypoint({
+          element: document.querySelector('section.features'),
+          handler: function(direction) {
+            if(direction === 'down'){
+              $('nav').addClass('sticky');
+              $('.backTop').css('opacity', '1');
+            }else{
+              $('nav').removeClass('sticky');
+              $('.backTop').css('opacity', '0');
+            }
+          },
+          offset:52
+        });
+
+        // Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            // $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  })
+
+  var waypoint1 = new Waypoint({
+      element: document.querySelector('section.works'),
+      handler: function(direction) {
+        $('.app-screen').addClass('animated fadeInLeftBig');
+
+      },
+      offset:400,
+
+    });
+  var waypoint2 = new Waypoint({
+      element: document.querySelector('section.cities'),
+      handler: function(direction) {
+        $('.cities img').addClass('animated fadeInUp');
+
+      },
+      offset: 286
+
+    });
+  var waypoint3 = new Waypoint({
+      element: document.querySelector('section.plans'),
+      handler: function(direction) {
+        $('.plan-box').addClass('animated fadeInUp');
+
+      },
+      offset: 286
+
+    });
+
+
+
+
+    })
+    </script>
+    </html>

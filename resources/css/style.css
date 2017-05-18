@@ -5,8 +5,21 @@
     box-sizing: border-box;
 }
 
+a:active {
+  outline: none !important;
+}
+a:link {
+  outline: none !important;
+}
+a:focus {
+  outline: none !important;
+}
+
+
+
 html,
 body {
+
     background-color: #fff;
     color: #000;
     font-family: 'Lato', 'Arial', sans-serif;
@@ -80,6 +93,35 @@ button.navbar-toggle {
   border-color: #fee;
 }
 
+
+/*sticky nav*/
+
+nav {
+  /*background: blue;*/
+  z-index: 100;
+}
+.sticky {
+  width: 100%;
+  border-radius: 0;
+  height: 52px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #555;
+  background-color: rgba(0, 0, 0, 0.7);
+  /*box-shadow: 0 2px 2px #eeffdd;*/
+
+}
+.sticky .navbar-nav{
+  margin-top: 0;
+}
+.sticky img {
+  height: 50px;
+  width: 50px;
+}
+
+/*sticky*/
+
 .navbar {
   /*position: relative;*/
   /*background-color: none;*/
@@ -121,7 +163,8 @@ nav img {
 /*section.features*/
 
 section.features {
-  margin-top: 70px;
+  /*background: lightpink;*/
+  padding-top: 70px;
   text-align: center;
 
   /*font-weight: 100;*/
@@ -141,7 +184,7 @@ section.features {
 
 section.features .h2-description {
   width: 70%;
-  margin: 20px auto 80px;
+  margin: 0px auto 80px;
   line-height: 145%;
 }
 
@@ -212,12 +255,13 @@ meals-showcase:last-of-type {
   margin-top: 0;
 }
 
-/*steps*/
-section.steps {
+/*works*/
+section.works {
   background: #fee;
+  padding-top: 70px;
   padding-bottom: 50px;
 }
-.steps h2 {
+.works h2 {
   text-align: center;
   text-transform: uppercase;
   margin-top: 50px;
@@ -238,6 +282,8 @@ section.steps {
 }
 .app-screen {
   /*background: red;*/
+  display: block;
+  opacity: 0;
   width: 40%;
   margin-left: 50%;;
 }
@@ -293,6 +339,7 @@ section h2 {
 }
 
 .cities img {
+  opacity: 0;
   width: 100%;
 }
 
@@ -344,7 +391,9 @@ section.plans {
 
 .plan-box {
   background: #fefefe;
-
+  margin: 0 auto;
+  width: 80%;
+  opacity: 0;
   border-radius: 10px;
 
   /*width: 90%;*/
@@ -451,6 +500,23 @@ footer p {
   color: #888;
 }
 
+.backTop {
+  display: block;
+  position: fixed;
+  padding: 5px;
+  bottom: 10px;
+  right: 10px;
+  border: 1px solid #ffeedd;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  background: rgba(11, 11, 11, 0.5);
+  opacity: 0;
+}
+.backTop:link {
+  text-decoration: none;
+  color:  rgba(0, 0, 0, 0.5);
+}
+
 /*small screen from 0 to 480px*/
 @media only screen and (max-width: 480px) {
    body {
@@ -543,10 +609,11 @@ footer p {
 }
 @media only screen and (max-width: 767px) {
   .navbar-brand img {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
   }
   .app-screen {
+    animation-duration: 0.01s;
     display: block;
     margin: 0 auto;
   }
@@ -559,6 +626,7 @@ footer p {
   }
 
   .plan-box {
+
     width: 70%;
     margin: 10px auto;
   }
