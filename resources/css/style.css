@@ -1,35 +1,20 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-a:active {
-  outline: none !important;
-}
-a:link {
-  outline: none !important;
-}
-a:focus {
-  outline: none !important;
-}
-
-
-
 html,
 body {
 
     background-color: #fff;
-    color: #000;
+    color: #555;
     font-family: 'Lato', 'Arial', sans-serif;
     font-size: 20px;
-    /*text-rendering: optimizeLegibility;*/
-    /*overflow-x: hidden;*/
 }
 
+/*header*/
 header {
-
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -37,12 +22,8 @@ header {
   background-attachment: fixed;
 }
 
-
-
-
 h1 {
   color: #fff;
-  margin-top: 0;
   font-size: 180%;
   font-weight: 200%;
   text-transform: uppercase;
@@ -60,11 +41,9 @@ h1 {
   color: lightgreen;
   background-color: rgba(12, 23, 0, 0.5);
 }
-
 .btn-full {
   background-color: rgba(23, 178, 44, 0.5);
 }
-
 .btn-ghost {
   background-color: rgba(22, 44, 166, 0.5);
 }
@@ -76,28 +55,22 @@ h1 {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
-/*
-header nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-}*/
+/*change the toggel btn style cause change the default background of bootstrap*/
 .icon-bar {
-  /*color: black;*/
   border-color: #fee;
   background:#000;
 }
-
 button.navbar-toggle {
-  border-color: #fee;
+  border-color: #fff;
+  background: radial-gradient(
+              circle at top left,
+              #dedede,
+              #010101);
 }
-
 
 /*sticky nav*/
 
 nav {
-  /*background: blue;*/
   z-index: 100;
 }
 .sticky {
@@ -109,8 +82,6 @@ nav {
   left: 0;
   color: #555;
   background-color: rgba(0, 0, 0, 0.7);
-  /*box-shadow: 0 2px 2px #eeffdd;*/
-
 }
 .sticky .navbar-nav{
   margin-top: 0;
@@ -130,59 +101,37 @@ nav {
 .navbar-nav {
   margin-top: 30px;
   text-transform: uppercase;
-  /*background: green;*/
   margin-left: 50px;
 }
 .navbar-nav a {
   color: #fff;
-  /*font-weight: 500 !important;*/
 }
 .navbar-nav a:hover {
   color: #000;
-  /*transform: scaleY(1.1);*/
-  transition: all 0.3s;
-}
-.nav-right {
-  margin-top: 30px;
-  position: absolute !important;
-  /*background: red;*/
-  right: 30px;
-  top: 0;
+  transition: all 0.5s;
 }
 
 ul.nav {
   float: right;
 }
-
 nav img {
   display: block;
   margin-top: -15px;
   height: 100px;
 }
 
+/*************/
 /*section.features*/
+/*************/
 
 section.features {
-  /*background: lightpink;*/
   padding-top: 70px;
   text-align: center;
-
-  /*font-weight: 100;*/
+  font-weight: 0;
 
 }
 
-/*section.features h2:after {
-  content: "";
-  display: block;
-  height: 2px;
-  background-color: #e67e22;
-  width: 100px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-top: 20px;
-}*/
-
-section.features .h2-description {
+.h2-description {
   width: 70%;
   margin: 0px auto 80px;
   line-height: 145%;
@@ -194,17 +143,17 @@ section.features i {
 }
 
 section.features h3 {
-  font-weight: 300;
+  font-weight: 200;
 }
 
-section.features .col-md-3 p {
-  font-size: 80%;
+section.features .col-sm-3 p {
+  font-size: 85%;
 }
 
 
 /*section.meals */
 section.meals {
-  margin-top: 100px;
+  padding-top: 70px;
 }
 
 section.meals .meals-showcase {
@@ -328,6 +277,7 @@ section.works {
 }
 
 .cities {
+  padding-top: 70px;
   padding-bottom: 50px;
 }
 
@@ -359,6 +309,7 @@ section h2 {
   color: #fff;
   background-attachment: fixed;
   padding-bottom: 50px;
+  padding-top: 70px;
 }
 
 blockquote {
@@ -384,19 +335,23 @@ cite img {
   border-radius: 50%;
 }
 
+/*PLANS */
+
 section.plans {
   background: #f4f4f4;
   padding-bottom: 50px;
+  padding-top: 70px;
 }
 
 .plan-box {
   background: #fefefe;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   opacity: 0;
   border-radius: 10px;
+  box-shadow: 0 2px 2px #efefef;
 
-  /*width: 90%;*/
+
 
 }
 
@@ -411,11 +366,15 @@ section.plans {
 .plan-box ul {
   list-style: none;
   padding-left: 10px;
+  font-size: 16px;
 }
+
+
 
 .plan-price {
   color: #e67e22;
-  font-size: 300%
+  font-size: 300%;
+  font-weight: 100px;
 }
 .plan-price span {
   font-size: 30px;
@@ -424,6 +383,7 @@ section.plans {
   color: #e76e22;
   display: inline-block;
   width: 25px;
+  font-size: 20px;
 }
 .plan-btn {
   text-align: center;
@@ -436,24 +396,47 @@ section.plans {
   border-radius: 20px;
   height: 40px;
 }
+.plan-btn a:hover {
+  text-decoration: none;
+  background: #e67e22;
+  color: #fff;
+}
 .plan-box div:first-child {
   background: #fcfcfc;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
+.plan-price-meal {
+  font-size: 17px;
+}
 
-.contact-form {
+
+.contact-form .row {
   width: 60%;
   margin: 0 auto;
+  }
+
+.contact-form .row label {
+  font-weight: 300;
 }
 
 input[type="text"],
 input[type=email],
 select,
 textarea {
+  padding: 2px 0 2px 5px;
+
   width: 100%;
 
+}
+.form {
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+.contact-form .row {
+  margin-top: 10px;
 }
 
 input[type=checkbox] {
@@ -509,12 +492,13 @@ footer p {
   border: 1px solid #ffeedd;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
-  background: rgba(11, 11, 11, 0.5);
+  /*background: rgba(11, 11, 11, 0.9);*/
   opacity: 0;
 }
 .backTop:link {
   text-decoration: none;
   color:  rgba(0, 0, 0, 0.5);
+  background-color:#556;
 }
 
 /*small screen from 0 to 480px*/
@@ -605,6 +589,10 @@ footer p {
         }
         .collapsing {
             overflow: hidden!important;
+        }
+
+        .plan-box {
+          width: 90%;
         }
 }
 @media only screen and (max-width: 767px) {
